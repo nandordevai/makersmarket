@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="hub.js" defer></script>
+    <style>
+        #hub {
+            background-color: rgb(7, 11, 26);
+            height: 320px;
+            width: 320px;
+        }
+
+        .link {
+            cursor: pointer;
+        }
+
+        .hub-border {
+            transition: transform 0.2s ease;
+            transform: scale(1);
+            transform-origin: 140px 140px;
+        }
+
+        .hub:hover .hub-border {
+            transform: scale(1.2);
+        }
+    </style>
+    <!-- <script src="links.js"></script> -->
+</head>
+
+<body>
+    <svg id="hub" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    </svg>
+    <!-- <div id="links"></div> -->
+</body>
+
+</html>
