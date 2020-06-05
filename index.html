@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <script src="hub.js" defer></script>
+    <script type="module" src="hub.js" defer></script>
+    <script type="module" src="links.js" defer></script>
     <style>
-        #hub {
+        #hub,
+        #links {
             background-color: rgb(7, 11, 26);
             height: 320px;
             width: 320px;
@@ -24,17 +26,17 @@
             transform-origin: 140px 140px;
         }
 
-        .hub:hover .hub-border {
+        #hub .hub:hover .hub-border {
             transform: scale(1.2);
         }
     </style>
-    <!-- <script src="links.js"></script> -->
 </head>
 
 <body>
     <svg id="hub" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     </svg>
-    <!-- <div id="links"></div> -->
+    <svg id="links" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    </svg>
 </body>
 
 </html>
