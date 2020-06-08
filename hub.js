@@ -70,9 +70,7 @@ class City extends SVGElement {
         this.opacity = 0.5;
         this.el = this.createElement('g', {
             'class': 'link',
-            // transform: `translate(${options.cx - width / 2}, ${options.cy - width / 2})`,
         });
-        // this.setPosition(options.cx - width / 2, options.cy - width / 2);
         this.el.appendChild(this.createElement('line', {
             x1: options.cx,
             y1: options.cy,
@@ -87,6 +85,7 @@ class City extends SVGElement {
             r: 25,
             fill: bgColor,
             stroke: lineColor,
+            'transform-origin': `${options.cx}px ${options.cy}px`,
         }));
         const text = this.createElement('text', {
             x: options.cx,
