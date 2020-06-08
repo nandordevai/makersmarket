@@ -33,13 +33,13 @@ class Hub extends SVGElement {
         super();
         this.iconSize = 32;
         this.el = this.createElement('g', {
-            'class': 'link hub',
-            transform: `translate(${options.cx - width / 2}, ${options.cy - width / 2})`,
+            'class': 'hub',
         });
         this.setPosition(options.cx - width / 2, options.cy - width / 2);
         this.el.appendChild(this.createElement('circle', {
             ...options,
             'class': 'hub-border',
+            'transform-origin': `${options.cx}px ${options.cy}px`,
         }));
         const text = this.createElement('text', {
             x: options.cx,
@@ -58,6 +58,9 @@ class Hub extends SVGElement {
             height: this.iconSize,
             href: 'upload.svg',
         }));
+        this.el.addEventListener('click', () => {
+            window.location = uploadURL;
+        });
     }
 }
 
@@ -68,28 +71,22 @@ class City extends SVGElement {
         this.opacity = 0.5;
         this.el = this.createElement('g', {
             'class': 'link',
-        });
-        const rotate = this.createElement('g', {
-            'class': 'rotate',
             'transform-origin': `${options.lineX}px ${options.lineY}px`,
         });
-        this.el.appendChild(rotate);
-        rotate.appendChild(this.createElement('line', {
+        this.el.appendChild(this.createElement('line', {
             x1: options.cx,
             y1: options.cy,
             x2: options.lineX,
             y2: options.lineY,
             stroke: lineColor,
             opacity: this.opacity,
-            'transform-origin': `${options.cx}px ${options.cy}px`,
         }));
-        rotate.appendChild(this.createElement('circle', {
+        this.el.appendChild(this.createElement('circle', {
             cx: options.cx,
             cy: options.cy,
             r: 25,
             fill: bgColor,
             stroke: lineColor,
-            'transform-origin': `${options.cx}px ${options.cy}px`,
         }));
         const text = this.createElement('text', {
             x: options.cx,
@@ -101,7 +98,7 @@ class City extends SVGElement {
         });
         text.appendChild(document.createTextNode(options.label));
         this.el.appendChild(text);
-        rotate.appendChild(this.createElement('image', {
+        this.el.appendChild(this.createElement('image', {
             x: options.cx - this.iconSize / 2,
             y: options.cy - this.iconSize / 2,
             width: this.iconSize,

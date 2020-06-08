@@ -9,7 +9,40 @@
     <script type="module" src="hub.js" defer></script>
     <script type="module" src="links.js" defer></script>
     <style>
-        #hub,
+        /* separate styles for hub */
+        #hub {
+            background-color: rgb(7, 11, 26);
+            height: 320px;
+            width: 320px;
+        }
+
+        .link,
+        .hub {
+            cursor: pointer;
+        }
+
+        .hub-border,
+        #hub .link {
+            transition: transform 0.3s ease;
+        }
+
+        .hub-border {
+            transform: scale(1);
+        }
+
+        #hub .hub:hover .hub-border {
+            transform: scale(1.2);
+        }
+
+        #hub .link {
+            transform: rotate(0);
+        }
+
+        #hub .link:hover {
+            transform: rotate(8deg);
+        }
+
+        /* separate styles for links */
         #links {
             background-color: rgb(7, 11, 26);
             height: 320px;
@@ -20,47 +53,16 @@
             cursor: pointer;
         }
 
-        .hub-border {
-            transform-origin: 160px 160px;
+        .link-border {
+            transition: transform 0.3s ease;
         }
 
-        .hub-border,
-        .link-border,
-        #hub .link {
-            transition: transform 0.2s ease;
-        }
-
-        .hub-border,
         .link-border {
             transform: scale(1);
         }
 
-        #hub .hub:hover .hub-border,
         #links .link:hover .link-border {
             transform: scale(1.2);
-        }
-
-        /*
-        #hub .link {
-            transform: rotate(0);
-        }
-
-        #hub .link:hover {
-            transform: rotate(8deg);
-        }
-
-        #hub .link:hover text {
-            transform: rotate(-8deg);
-        }
-        */
-
-        .rotate {
-            transform: rotate(0);
-            transition: transform 0.2s ease;
-        }
-
-        .rotate:hover {
-            transform: rotate(8deg);
         }
     </style>
 </head>
