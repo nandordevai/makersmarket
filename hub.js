@@ -64,22 +64,26 @@ class Hub extends SVGElement {
 class City extends SVGElement {
     constructor(options) {
         super();
-        this.lineX = options.lineX;
-        this.lineY = options.lineY;
         this.iconSize = 24;
         this.opacity = 0.5;
         this.el = this.createElement('g', {
             'class': 'link',
         });
-        this.el.appendChild(this.createElement('line', {
+        const rotate = this.createElement('g', {
+            'class': 'rotate',
+            'transform-origin': `${options.lineX}px ${options.lineY}px`,
+        });
+        this.el.appendChild(rotate);
+        rotate.appendChild(this.createElement('line', {
             x1: options.cx,
             y1: options.cy,
-            x2: this.lineX,
-            y2: this.lineY,
+            x2: options.lineX,
+            y2: options.lineY,
             stroke: lineColor,
             opacity: this.opacity,
+            'transform-origin': `${options.cx}px ${options.cy}px`,
         }));
-        this.el.appendChild(this.createElement('circle', {
+        rotate.appendChild(this.createElement('circle', {
             cx: options.cx,
             cy: options.cy,
             r: 25,
@@ -97,7 +101,7 @@ class City extends SVGElement {
         });
         text.appendChild(document.createTextNode(options.label));
         this.el.appendChild(text);
-        this.el.appendChild(this.createElement('image', {
+        rotate.appendChild(this.createElement('image', {
             x: options.cx - this.iconSize / 2,
             y: options.cy - this.iconSize / 2,
             width: this.iconSize,

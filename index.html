@@ -25,16 +25,42 @@
         }
 
         .hub-border,
-        #hub circle,
-        .link-border {
+        .link-border,
+        #hub .link {
             transition: transform 0.2s ease;
+        }
+
+        .hub-border,
+        .link-border {
             transform: scale(1);
         }
 
         #hub .hub:hover .hub-border,
-        #hub .link:hover circle,
         #links .link:hover .link-border {
             transform: scale(1.2);
+        }
+
+        /*
+        #hub .link {
+            transform: rotate(0);
+        }
+
+        #hub .link:hover {
+            transform: rotate(8deg);
+        }
+
+        #hub .link:hover text {
+            transform: rotate(-8deg);
+        }
+        */
+
+        .rotate {
+            transform: rotate(0);
+            transition: transform 0.2s ease;
+        }
+
+        .rotate:hover {
+            transform: rotate(8deg);
         }
     </style>
 </head>
