@@ -21,12 +21,17 @@
         }
 
         .hub-border {
-            transition: transform 0.2s ease;
-            transform: scale(1);
-            transform-origin: 140px 140px;
+            /* transform-origin: 140px 140px; */
         }
 
-        #hub .hub:hover .hub-border {
+        .hub-border,
+        .link-border {
+            transition: transform 0.2s ease;
+            transform: scale(1);
+        }
+
+        #hub .hub:hover .hub-border,
+        #links .link:hover .link-border {
             transform: scale(1.2);
         }
     </style>

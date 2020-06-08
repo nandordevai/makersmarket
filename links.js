@@ -102,6 +102,8 @@ class Link extends SVGElement {
             r: 25,
             fill: bgColor,
             stroke: lineColor,
+            'class': 'link-border',
+            'transform-origin': `${options.cx}px ${options.cy}px`,
         }));
         const text = this.createElement('text', {
             x: options.cx,
@@ -113,6 +115,16 @@ class Link extends SVGElement {
         });
         text.appendChild(document.createTextNode(options.label));
         this.el.appendChild(text);
+        const letter = this.createElement('text', {
+            x: options.cx,
+            y: options.cy + 8,
+            fill: lineColor,
+            'text-anchor': 'middle',
+            'font-family': 'Roboto',
+            'font-size': '24px',
+        });
+        letter.appendChild(document.createTextNode(options.letter));
+        this.el.appendChild(letter);
         this.el.addEventListener('click', () => {
             window.location = this.url;
         });
@@ -131,6 +143,7 @@ const links = linkOptions.map((option, i) => {
         label: option.title,
         'class': 'link',
         url: option.url,
+        letter: option.letter
     });
 });
 
